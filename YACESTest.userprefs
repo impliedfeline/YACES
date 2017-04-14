@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="YACESTest/YACES/GameSystem/GameSystem.cs">
+    <Files>
+      <File FileName="YACESTest/YACES/GameComponent/GameComponent.cs" Line="12" Column="25" />
+      <File FileName="YACESTest/YACES/GameEvent/GameEvent.cs" Line="10" Column="23" />
+      <File FileName="YACESTest/YACES/GameObjectRuntime.cs" Line="19" Column="4" />
+      <File FileName="YACESTest/YACES/GameObject/GameObject.cs" Line="25" Column="51" />
+      <File FileName="YACESTest/YACES/GameSystem/GameSystem.cs" Line="10" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

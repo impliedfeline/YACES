@@ -52,12 +52,25 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YACES\GameComponent\GameComponent.cs" />
+    <Compile Include="YACES\GameEvent\GameEvent.cs" />
+    <Compile Include="YACES\GameObject\GameObject.cs" />
+    <Compile Include="YACES\GameObjectRuntime.cs" />
+    <Compile Include="YACES\GameSystem\GameSystem.cs" />
+    <Compile Include="YACES\GameComponent\Transform.cs" />
+    <Compile Include="YACES\GameEvent\TranslateEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
+    <Folder Include="System\" />
+    <Folder Include="YACES\" />
+    <Folder Include="YACES\GameObject\" />
+    <Folder Include="YACES\GameComponent\" />
+    <Folder Include="YACES\GameEvent\" />
+    <Folder Include="YACES\GameSystem\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
