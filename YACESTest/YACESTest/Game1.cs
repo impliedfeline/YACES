@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 #endregion
 
-namespace YACES
+namespace YACESTest
 {
 	/// <summary>
     /// This is the main type for your game

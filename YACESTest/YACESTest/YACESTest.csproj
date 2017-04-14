@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AD39046B-E2E3-4C6D-9591-496ECB97DD45}</ProjectGuid>
+    <ProjectGuid>{D570DD30-2167-4DCB-B87C-67D4384CF14C}</ProjectGuid>
     <ProjectTypeGuids>{9B831FEF-F496-498F-9FE8-180DA5CB4258};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>YACES</RootNamespace>
-    <AssemblyName>YACES</AssemblyName>
+    <RootNamespace>YACESTest</RootNamespace>
+    <AssemblyName>YACESTest</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>

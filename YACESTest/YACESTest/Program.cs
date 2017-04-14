@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 #endregion
 
-namespace YACES
+namespace YACESTest
 {
     static class Program
     {
