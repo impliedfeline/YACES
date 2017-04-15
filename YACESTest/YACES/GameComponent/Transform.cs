@@ -5,16 +5,20 @@ namespace YACESTest
 {
 	public class Transform : GameComponent
 	{
+		private readonly static string[] TRANSFORM_EVENTS = { "TRANSLATE" };
+		public override string[] EventHashIDs { get { return TRANSFORM_EVENTS; } }
 		private Vector2 transform;
 
 		public Transform (Vector2 transform) {
-			this.EventHashIDs = new int[1];
-			this.EventHashIDs [0] = "TRANSLATE";
 			this.transform = transform;
 		}
 
-		public void OnEvent (TranslateEvent e) {
-
+		public override GameEvent OnEvent (GameEvent ge) {
+			if (ge is TranslateEvent) {
+				TranslateEvent te = (TranslateEvent) ge;
+				transform += te.Translation;
+			}
+			return null;
 		}
 	}
 }

@@ -59,6 +59,8 @@
     <Compile Include="YACES\GameSystem\GameSystem.cs" />
     <Compile Include="YACES\GameComponent\Transform.cs" />
     <Compile Include="YACES\GameEvent\TranslateEvent.cs" />
+    <Compile Include="YACES\GameSystem\GravitySystem.cs" />
+    <Compile Include="YACES\GameScene\GameScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
@@ -71,6 +73,7 @@
     <Folder Include="YACES\GameComponent\" />
     <Folder Include="YACES\GameEvent\" />
     <Folder Include="YACES\GameSystem\" />
+    <Folder Include="YACES\GameScene\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

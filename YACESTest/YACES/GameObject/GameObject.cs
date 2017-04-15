@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace YACESTest
 {
 	public abstract class GameObject
 	{
 		private Dictionary<string, List<GameComponent>> eventComponentMap;
-		private List<GameComponent> gameComponents;
 
 		public GameObject (List<GameComponent> gameComponents) {
 			foreach (GameComponent gc in gameComponents) {

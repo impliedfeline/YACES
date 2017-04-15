@@ -5,11 +5,12 @@ namespace YACESTest
 {
 	public class TranslateEvent : GameEvent
 	{
-		private Vector2 translation;
+		private static readonly string TRANSLATE_EVENT_ID = "TRANSLATE";
+		public override string HashID { get { return TRANSLATE_EVENT_ID; } }
+		public Vector2 Translation { get; private set; }
 
 		public TranslateEvent (Vector2 translation) {
-			this.HashID = "TRANSLATE";
-			this.translation = translation;
+			this.Translation = translation;
 		}
 	}
 }
