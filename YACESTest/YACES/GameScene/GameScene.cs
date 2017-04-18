@@ -1,21 +1,49 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace YACESTest
 {
 	public class GameScene
 	{
-		public HashSet<GameObject> GameObjects { get; private set; }
+		private AspectMap gameObjects;
+		private List<GameSystem> gameSystems;
 
-		public GameScene () {
-			GameObjects = new HashSet<GameObject> ();
+		public GameScene ()
+		{
+			gameObjects = new AspectMap ();
+			gameSystems = new List<GameSystem> ();
 		}
 
-		public GameScene (HashSet<GameObject> gameObjects) {
-			this.GameObjects = gameObjects;
+		public void AddGameObject (GameObject go)
+		{
+			gameObjects.AddGameObject (go);
 		}
 
-		public void AddGameObject (GameObject go) { GameObjects.Add (go); }
+		public void RemoveGameObject (GameObject go)
+		{
+			gameObjects.RemoveGameObject (go);
+		}
+
+		public void AddGameSystem (GameSystem gs)
+		{
+			gameSystems.Add (gs);
+		}
+
+		public void RemoveGameSystem (GameSystem gs)
+		{
+			gameSystems.Remove (gs);
+		}
+
+		public void Initialize ()
+		{
+			gameSystems.Sort ();
+		}
+
+		public void RunSystems (GameTime gameTime)
+		{
+			gameSystems.ForEach (gs => gs.Run (gameObjects, gameTime));
+		}
 	}
 }
 

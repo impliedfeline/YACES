@@ -1,12 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="YACESTest/YACES/GameSystem/GameSystem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="YACESTest/YACES/AspectMap.cs">
     <Files>
-      <File FileName="YACESTest/YACES/GameComponent/GameComponent.cs" Line="12" Column="25" />
-      <File FileName="YACESTest/YACES/GameEvent/GameEvent.cs" Line="10" Column="23" />
-      <File FileName="YACESTest/YACES/GameObjectRuntime.cs" Line="19" Column="4" />
-      <File FileName="YACESTest/YACES/GameObject/GameObject.cs" Line="25" Column="51" />
-      <File FileName="YACESTest/YACES/GameSystem/GameSystem.cs" Line="10" Column="4" />
+      <File FileName="YACESTest/YACES/GameScene/GameScene.cs" Line="3" Column="1" />
+      <File FileName="YACESTest/YACES/Aspect.cs" Line="22" Column="21" />
+      <File FileName="YACESTest/YACES/AspectMap.cs" Line="26" Column="44" />
+      <File FileName="YACESTest/YACES/GameObject/GameObject.cs" Line="10" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

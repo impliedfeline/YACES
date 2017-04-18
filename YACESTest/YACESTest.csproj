@@ -53,14 +53,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YACES\GameComponent\GameComponent.cs" />
-    <Compile Include="YACES\GameEvent\GameEvent.cs" />
     <Compile Include="YACES\GameObject\GameObject.cs" />
     <Compile Include="YACES\GameObjectRuntime.cs" />
     <Compile Include="YACES\GameSystem\GameSystem.cs" />
-    <Compile Include="YACES\GameComponent\Transform.cs" />
-    <Compile Include="YACES\GameEvent\TranslateEvent.cs" />
     <Compile Include="YACES\GameSystem\GravitySystem.cs" />
     <Compile Include="YACES\GameScene\GameScene.cs" />
+    <Compile Include="YACES\GameComponent\Transform2D.cs" />
+    <Compile Include="YACES\Utils\Aspect.cs" />
+    <Compile Include="YACES\Utils\AspectMap.cs" />
+    <Compile Include="YACES\GameComponent\Render2D.cs" />
+    <Compile Include="YACES\GameSystem\RenderSystem.cs" />
+    <Compile Include="YACES\GameObject\BlockFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
@@ -71,9 +74,9 @@
     <Folder Include="YACES\" />
     <Folder Include="YACES\GameObject\" />
     <Folder Include="YACES\GameComponent\" />
-    <Folder Include="YACES\GameEvent\" />
     <Folder Include="YACES\GameSystem\" />
     <Folder Include="YACES\GameScene\" />
+    <Folder Include="YACES\Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

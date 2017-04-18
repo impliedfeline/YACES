@@ -1,27 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 
 namespace YACESTest
 {
-	public abstract class GameObject
+	public class GameObject
 	{
-		private Dictionary<string, List<GameComponent>> eventComponentMap;
+		public Dictionary<Type, List<GameComponent>> GameComponents { get; private set; }
 
-		public GameObject (List<GameComponent> gameComponents) {
-			foreach (GameComponent gc in gameComponents) {
-				foreach (string hashID in gc.EventHashIDs) {
-					if (!eventComponentMap.ContainsKey (hashID)) {
-						eventComponentMap.Add(hashID, new List<GameComponent>());
-					}
-					eventComponentMap [hashID].Add (gc);
-				}
-			}
-		}
+		public Aspect Aspect { get; private set; }
 
-		public void OnEvent(GameEvent e) {
-			if (eventComponentMap.ContainsKey(e.HashID)) {
-				eventComponentMap [e.HashID].ForEach (g => g.OnEvent (e));
-			}
+		public GameObject (Dictionary<Type, List<GameComponent>> gameComponents, Aspect aspect)
+		{
+			this.GameComponents = gameComponents;
+			this.Aspect = aspect;
 		}
 	}
 }
