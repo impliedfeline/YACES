@@ -7,6 +7,10 @@ namespace YACESTest
 	{
 		private static Aspect isBlock = new Aspect (typeof(Block));
 
+		public BlockDestroySystem () : base ()
+		{
+		}
+
 		public BlockDestroySystem (int priority) : base (priority)
 		{
 		}

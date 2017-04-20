@@ -6,6 +6,12 @@ namespace YACESTest
 {
 	public abstract class GameSystem : IComparable<GameSystem>
 	{
+		public enum Order
+		{
+			FIRST = Int32.MinValue,
+			LAST = Int32.MaxValue
+		}
+
 		public int Priority { get; protected set; }
 
 		public GameSystem ()

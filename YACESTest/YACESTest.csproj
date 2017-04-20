@@ -70,6 +70,11 @@
     <Compile Include="Demo\BlockDestroySystem.cs" />
     <Compile Include="Demo\BlockGeneratorSystem.cs" />
     <Compile Include="YACES\GameComponent\Transform.cs" />
+    <Compile Include="Demo\Player.cs" />
+    <Compile Include="Demo\PlayerScriptSystem.cs" />
+    <Compile Include="Demo\PlayerControllerSystem.cs" />
+    <Compile Include="Demo\DemoCollisionSystem.cs" />
+    <Compile Include="Demo\Hitbox2D.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

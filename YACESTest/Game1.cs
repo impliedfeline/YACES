@@ -33,8 +33,6 @@ namespace YACESTest
 		protected override void Initialize ()
 		{
 			// TODO: Add your initialization logic here
-			gameObjectRuntime.ChangeScene (new TestScene ());
-			gameObjectRuntime.Initialize ();
 			base.Initialize ();
 				
 		}
@@ -48,8 +46,11 @@ namespace YACESTest
 			// Create a new SpriteBatch, which can be used to draw textures.
 			//TODO: use this.Content to load your game content here 
 			Block.Sprite = Content.Load<Texture2D> ("block");
-			gameObjectRuntime.Renderer = new Render2DSystem (0);
+			Player.Sprite = Content.Load<Texture2D> ("block");
+			gameObjectRuntime.Renderer = new Render2DSystem ((int)GameSystem.Order.LAST);
 			gameObjectRuntime.LoadContent ();
+			gameObjectRuntime.ChangeScene (new TestScene ());
+			gameObjectRuntime.Initialize ();
 		}
 
 		/// <summary>

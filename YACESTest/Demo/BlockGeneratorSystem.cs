@@ -8,6 +8,12 @@ namespace YACESTest
 		private Random rng;
 		private double counter;
 
+		public BlockGeneratorSystem () : base ()
+		{
+			rng = new Random ();
+			counter = 0;
+		}
+
 		public BlockGeneratorSystem (int priority) : base (priority)
 		{
 			rng = new Random ();

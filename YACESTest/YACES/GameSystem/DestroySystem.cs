@@ -9,6 +9,11 @@ namespace YACESTest
 	{
 		private Queue<GameObject> delQueue;
 
+		public DestroySystem () : base ()
+		{
+			delQueue = new Queue<GameObject> ();
+		}
+
 		public DestroySystem (int priority) : base (priority)
 		{
 			delQueue = new Queue<GameObject> ();

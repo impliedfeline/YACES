@@ -8,6 +8,10 @@ namespace YACESTest
 	{
 		private static Aspect isBlock = new Aspect (typeof(Block));
 
+		public GravitySystem () : base ()
+		{
+		}
+
 		public GravitySystem (int priority) : base (priority)
 		{
 		}
@@ -16,7 +20,7 @@ namespace YACESTest
 		{
 			foreach (GameObject go in gs.GetGameObjectsByAspect(isBlock)) {
 				Transform2D transform = go.Transform as Transform2D;
-				transform.Position += new Vector2 (0, 0.5f * (gt.ElapsedGameTime.Milliseconds));
+				transform.Position += new Vector2 (0, 0.5f * gt.ElapsedGameTime.Milliseconds);
 			}
 		}
 	}

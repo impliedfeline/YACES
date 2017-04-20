@@ -9,6 +9,11 @@ namespace YACESTest
 	{
 		private Queue<GameObject> addQueue;
 
+		public CreationSystem () : base ()
+		{
+			addQueue = new Queue<GameObject> ();
+		}
+
 		public CreationSystem (int priority) : base (priority)
 		{
 			addQueue = new Queue<GameObject> ();
