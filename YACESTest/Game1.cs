@@ -14,13 +14,14 @@ namespace YACESTest
 	public class Game1 : Game
 	{
 		GraphicsDeviceManager graphics;
-		SpriteBatch spriteBatch;
+		GameObjectRuntime gameObjectRuntime;
 
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
-			Content.RootDirectory = "Content";	            
-			graphics.IsFullScreen = true;		
+			Content.RootDirectory = "Content";
+			gameObjectRuntime = new GameObjectRuntime (graphics);
+			//graphics.IsFullScreen = true;		
 		}
 
 		/// <summary>
@@ -32,6 +33,8 @@ namespace YACESTest
 		protected override void Initialize ()
 		{
 			// TODO: Add your initialization logic here
+			gameObjectRuntime.ChangeScene (new TestScene ());
+			gameObjectRuntime.Initialize ();
 			base.Initialize ();
 				
 		}
@@ -43,9 +46,10 @@ namespace YACESTest
 		protected override void LoadContent ()
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
-			spriteBatch = new SpriteBatch (GraphicsDevice);
-
 			//TODO: use this.Content to load your game content here 
+			Block.Sprite = Content.Load<Texture2D> ("block");
+			gameObjectRuntime.Renderer = new Render2DSystem (0);
+			gameObjectRuntime.LoadContent ();
 		}
 
 		/// <summary>
@@ -59,7 +63,8 @@ namespace YACESTest
 			if (GamePad.GetState (PlayerIndex.One).Buttons.Back == ButtonState.Pressed) {
 				Exit ();
 			}
-			// TODO: Add your update logic here			
+			// TODO: Add your update logic here
+			gameObjectRuntime.Update (gameTime);
 			base.Update (gameTime);
 		}
 
@@ -70,9 +75,8 @@ namespace YACESTest
 		protected override void Draw (GameTime gameTime)
 		{
 			graphics.GraphicsDevice.Clear (Color.Black);
-		
 			//TODO: Add your drawing code here
-            
+			gameObjectRuntime.Draw (gameTime);
 			base.Draw (gameTime);
 		}
 	}

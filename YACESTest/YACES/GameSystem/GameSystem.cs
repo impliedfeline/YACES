@@ -8,6 +8,11 @@ namespace YACESTest
 	{
 		public int Priority { get; protected set; }
 
+		public GameSystem ()
+		{
+			this.Priority = Int32.MaxValue;
+		}
+
 		public GameSystem (int priority)
 		{
 			this.Priority = priority;
@@ -18,7 +23,7 @@ namespace YACESTest
 			return this.Priority - that.Priority;
 		}
 
-		public abstract void Run (AspectMap am, GameTime gt);
+		public abstract void Run (GameScene gs, GameTime gt);
 	}
 }
 

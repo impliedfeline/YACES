@@ -1,39 +1,47 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace YACESTest
 {
 	public class GameObjectRuntime
 	{
-		private LinkedList<GameScene> sceneList;
 		private GameScene currentScene;
+		private GraphicsDeviceManager graphics;
 
-		public GameObjectRuntime ()
+		public RenderSystem Renderer { get; set; }
+
+		public GameObjectRuntime (GraphicsDeviceManager graphics)
 		{
-			sceneList = new LinkedList<GameScene> ();
 			currentScene = new GameScene ();
-		}
-
-		public void AddGameObject (GameObject go)
-		{
-			currentScene.AddGameObject (go);
+			this.graphics = graphics;
 		}
 
 		public void ChangeScene (GameScene gs)
 		{
-			// Problematic, think this through
+			currentScene = gs;
+			// TODO: Pass certain systems and gameObjects flagged DontDestroyOnLoad, Initialize
+		}
+
+		public void LoadContent ()
+		{
+			Renderer.SpriteBatch = new SpriteBatch (graphics.GraphicsDevice);
 		}
 
 		public void Initialize ()
 		{
-
+			currentScene.Initialize ();
 		}
-		//TODO: Provide framework for chaining systems, as in the output events of one system
-		// work as the input of another.
+
 		public void Update (GameTime gameTime)
 		{
+			currentScene.RunSystems (gameTime);
+		}
 
+		public void Draw (GameTime gameTime)
+		{
+			currentScene.RunAdHocSystem (Renderer, gameTime);
 		}
 	}
 }

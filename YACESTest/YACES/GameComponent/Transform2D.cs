@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace YACESTest
 {
-	public class Transform2D : GameComponent
+	public class Transform2D : Transform
 	{
 		public Vector2 Position { get; set; }
 
