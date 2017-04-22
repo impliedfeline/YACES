@@ -8,10 +8,10 @@ namespace YACESTest
 	{
 		public static Texture2D Sprite { get; set; }
 
-		public Player (Transform2D transform) : base (transform)
+		public Player (Transform transform) : base (transform)
 		{
 			AddGameComponent<Render2D> (new Render2D (Sprite));
-			AddToAspect (typeof(Player));
+			AddToAspect<Player> ();
 		}
 	}
 }

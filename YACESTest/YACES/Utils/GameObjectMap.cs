@@ -3,16 +3,17 @@ using System.Collections.Generic;
 
 namespace YACESTest
 {
-	public class AspectMap
+	public class GameObjectMap
 	{
+		private Dictionary<uint, GameObject> gameObjectsByID;
 		private Dictionary<Aspect, HashSet<GameObject>> gameObjectsByAspect;
 
-		public AspectMap ()
+		public GameObjectMap ()
 		{
+			gameObjectsByID = new Dictionary<uint,GameObject> ();
 			gameObjectsByAspect = new Dictionary<Aspect,HashSet<GameObject>> ();
 		}
-		// This is painfully slow; one trivial way to make this O(1) would be to store references to
-		// gameObjects in all the possible permutations of aspects. We'll see how this pans out
+
 		public List<GameObject> GetGameObjectsByAspect (Aspect aspect)
 		{
 			List<GameObject> gameObjects = new List<GameObject> ();
@@ -22,20 +23,27 @@ namespace YACESTest
 			}
 			return gameObjects;
 		}
-		// Consider above comment
+
+		public GameObject GetGameObjectByID (uint id)
+		{
+			return gameObjectsByID [id];
+		}
+
 		public void AddGameObject (GameObject go)
 		{
 			if (!gameObjectsByAspect.ContainsKey (go.Aspect)) {
-				gameObjectsByAspect [go.Aspect] = new HashSet<GameObject> ();
+				gameObjectsByAspect.Add (go.Aspect, new HashSet<GameObject> ());
 			}
+			gameObjectsByID.Add (go.ID, go);
 			gameObjectsByAspect [go.Aspect].Add (go);
 		}
-		// Would make this a lot slower then...
+
 		public void RemoveGameObject (GameObject go)
 		{
 			if (!gameObjectsByAspect.ContainsKey (go.Aspect)) {
 				return;
 			}
+			gameObjectsByID.Remove (go.ID);
 			gameObjectsByAspect [go.Aspect].Remove (go);
 		}
 	}

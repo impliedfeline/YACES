@@ -6,14 +6,14 @@ namespace YACESTest
 {
 	public class GameScene
 	{
-		private AspectMap gameObjects;
+		private GameObjectMap gameObjects;
 
 		private List<GameSystem> gameSystems;
 		private Dictionary<Type,GameSystem> gameSystemsDict;
 
 		public GameScene ()
 		{
-			gameObjects = new AspectMap ();
+			gameObjects = new GameObjectMap ();
 			gameSystems = new List<GameSystem> ();
 			gameSystemsDict = new Dictionary<Type, GameSystem> ();
 		}
@@ -33,23 +33,22 @@ namespace YACESTest
 			return gameObjects.GetGameObjectsByAspect (aspect);
 		}
 
-		// TODO: add checks
-		public void AddGameSystem<T> (T gs)
+		public void AddGameSystem<T> (T gs) where T : GameSystem
 		{
-			gameSystems.Add (gs as GameSystem);
-			gameSystemsDict [typeof(T)] = gs as GameSystem;
+			gameSystems.Add (gs);
+			gameSystemsDict [typeof(T)] = gs;
 		}
 
-		// TODO: here aswell
-		public void RemoveGameSystem<T> (T gs)
+		public void RemoveGameSystem<T> (T gs) where T : GameSystem
 		{
-			gameSystems.Remove (gs as GameSystem);
+			
+			gameSystems.Remove (gs);
 			gameSystemsDict [typeof(T)] = null;
 		}
 
-		public GameSystem GetGameSystem (Type t)
+		public T GetGameSystem<T> () where T : GameSystem
 		{
-			return gameSystemsDict [t];
+			return gameSystemsDict [typeof(T)] as T;
 		}
 
 		public void Initialize ()

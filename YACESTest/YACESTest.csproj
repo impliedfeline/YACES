@@ -56,9 +56,7 @@
     <Compile Include="YACES\GameObjectRuntime.cs" />
     <Compile Include="YACES\GameSystem\GameSystem.cs" />
     <Compile Include="YACES\GameScene\GameScene.cs" />
-    <Compile Include="YACES\GameComponent\Transform2D.cs" />
     <Compile Include="YACES\Utils\Aspect.cs" />
-    <Compile Include="YACES\Utils\AspectMap.cs" />
     <Compile Include="YACES\GameComponent\Render2D.cs" />
     <Compile Include="YACES\GameSystem\RenderSystem.cs" />
     <Compile Include="YACES\GameSystem\CreationSystem.cs" />
@@ -75,6 +73,7 @@
     <Compile Include="Demo\PlayerControllerSystem.cs" />
     <Compile Include="Demo\DemoCollisionSystem.cs" />
     <Compile Include="Demo\Hitbox2D.cs" />
+    <Compile Include="YACES\Utils\GameObjectMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

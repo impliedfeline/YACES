@@ -13,7 +13,7 @@ namespace YACESTest
 		public override void Run (GameScene gs, GameTime gt)
 		{
 			KeyboardState state = Keyboard.GetState ();
-			PlayerScriptSystem pcs = gs.GetGameSystem (typeof(PlayerScriptSystem)) as PlayerScriptSystem;
+			PlayerScriptSystem pcs = gs.GetGameSystem<PlayerScriptSystem> ();
 			if (state.IsKeyDown (Keys.W) || state.IsKeyDown (Keys.Up)) {
 				pcs.MoveUp = true;
 			}

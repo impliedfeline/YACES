@@ -7,7 +7,7 @@ namespace YACESTest
 	{
 		private static Aspect containsSprite = new Aspect (typeof(Render2D));
 
-		public Render2DSystem (int priority) : base (priority)
+		public Render2DSystem () : base ()
 		{
 		}
 
@@ -15,9 +15,8 @@ namespace YACESTest
 		{
 			SpriteBatch.Begin ();
 			foreach (GameObject go in gs.GetGameObjectsByAspect(containsSprite)) {
-				Transform2D transform = go.Transform as Transform2D;
 				Render2D render = go.GetGameComponentsByType<Render2D> () [0] as Render2D;
-				SpriteBatch.Draw (render.Sprite, transform.Position, Color.White);
+				SpriteBatch.Draw (render.Sprite, go.Transform.Position2D, Color.White);
 			}
 			SpriteBatch.End ();
 		}

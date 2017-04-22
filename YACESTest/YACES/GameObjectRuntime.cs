@@ -31,6 +31,9 @@ namespace YACESTest
 
 		public void Initialize ()
 		{
+			currentScene.AddGameSystem (new CreationSystem ());
+			currentScene.AddGameSystem (new DestroySystem ());
+			currentScene.AddGameSystem (Renderer);
 			currentScene.Initialize ();
 		}
 

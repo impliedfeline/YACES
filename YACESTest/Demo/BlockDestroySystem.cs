@@ -18,8 +18,7 @@ namespace YACESTest
 		public override void Run (GameScene gs, GameTime gt)
 		{
 			foreach (GameObject go in gs.GetGameObjectsByAspect(isBlock)) {
-				Transform2D transform = go.Transform as Transform2D;
-				if (transform.Position.Y > 400) {
+				if (go.Transform.Position2D.Y > 400) {
 					gs.RemoveGameObject (go);
 				}
 			}

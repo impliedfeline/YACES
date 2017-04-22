@@ -12,8 +12,8 @@ namespace YACESTest
 			AddGameSystem (new BlockDestroySystem ());
 			AddGameSystem (new GravitySystem ());
 
-			Vector2 z = new Vector2 (0, 0);
-			AddGameObject (new Player (new Transform2D (z, z, z)));
+			Vector3 z = new Vector3 (0, 0, 0);
+			AddGameObject (new Player (new Transform (z, z, z)));
 			AddGameSystem (new PlayerScriptSystem ());
 			AddGameSystem (new PlayerControllerSystem ());
 		}

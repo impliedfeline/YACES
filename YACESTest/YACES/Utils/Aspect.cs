@@ -36,9 +36,14 @@ namespace YACESTest
 			return flag;
 		}
 
-		public void AddType (Type t)
+		public void AddType<T> ()
 		{
-			types.Add (t);
+			types.Add (typeof(T));
+		}
+
+		public void RemoveType<T> ()
+		{
+			types.Remove (typeof(T));
 		}
 
 		public override bool Equals (object obj)

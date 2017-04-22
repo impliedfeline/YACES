@@ -8,8 +8,9 @@ namespace YACESTest
 	{
 		public SpriteBatch SpriteBatch { get; set; }
 
-		public RenderSystem (int priority) : base (priority)
+		public RenderSystem () : base ()
 		{
+			Priority = GameSystem.LAST;
 		}
 	}
 }

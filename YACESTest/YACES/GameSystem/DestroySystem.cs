@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace YACESTest
 {
-	public abstract class DestroySystem : GameSystem
+	public class DestroySystem : GameSystem
 	{
 		private Queue<GameObject> delQueue;
 

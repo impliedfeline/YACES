@@ -19,8 +19,7 @@ namespace YACESTest
 		public override void Run (GameScene gs, GameTime gt)
 		{
 			foreach (GameObject go in gs.GetGameObjectsByAspect(isBlock)) {
-				Transform2D transform = go.Transform as Transform2D;
-				transform.Position += new Vector2 (0, 0.5f * gt.ElapsedGameTime.Milliseconds);
+				go.Transform.Position2D += new Vector2 (0, 0.5f * gt.ElapsedGameTime.Milliseconds);
 			}
 		}
 	}

@@ -8,11 +8,11 @@ namespace YACESTest
 	{
 		public static Texture2D Sprite { get; set; }
 
-		public Block (Transform2D transform) : base (transform)
+		public Block (Transform transform) : base (transform)
 		{
-			AddGameComponent<Hitbox2D> (new Hitbox2D (transform.Position));
+			AddGameComponent<Hitbox2D> (new Hitbox2D (transform.Position2D));
 			AddGameComponent<Render2D> (new Render2D (Sprite));
-			AddToAspect (typeof(Block));
+			AddToAspect<Block> ();
 		}
 	}
 }
