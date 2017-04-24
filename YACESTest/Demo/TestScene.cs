@@ -12,8 +12,19 @@ namespace YACESTest
 			AddGameSystem (new BlockDestroySystem ());
 			AddGameSystem (new GravitySystem ());
 
-			Vector3 z = new Vector3 (0, 0, 0);
-			AddGameObject (new Player (new Transform (z, z, z)));
+			Vector3 z = Vector3.Zero;
+			Vector3 s = Vector3.One;
+			Player p = new Player (new Transform (new Vector3 (600, 500, 0), s, z));
+			AddGameObject (p);
+
+			ChildTest c1 = new ChildTest (new Transform (new Vector3 (128, 0, 0), s, z));
+			ChildTest c2 = new ChildTest (new Transform (new Vector3 (-128, 0, 0), s, z));
+			p.Attach (c1);
+			p.Attach (c2);
+			AddGameObject (c1);
+			AddGameObject (c2);
+
+
 			AddGameSystem (new PlayerScriptSystem ());
 			AddGameSystem (new PlayerControllerSystem ());
 		}

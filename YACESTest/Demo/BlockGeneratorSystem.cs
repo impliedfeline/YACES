@@ -25,11 +25,9 @@ namespace YACESTest
 			counter += gt.ElapsedGameTime.TotalSeconds;
 			if (counter > 0.125) {
 				counter = 0;
-				Vector3 z = new Vector3 (0, 0, 0);
-				Transform t = new Transform (new Vector3 (rng.Next (1200), 0, 0), z, z);
+				Transform t = new Transform (new Vector3 (rng.Next (1200), 0, 0), Vector3.One, Vector3.Zero);
 				Block b = new Block (t);
-				CreationSystem cs = gs.GetGameSystem<CreationSystem> ();
-				cs.AttachGameObject (b);
+				gs.GetGameSystem<CreationSystem> ().AttachGameObject (b);
 			}
 		}
 	}

@@ -6,31 +6,31 @@ namespace YACESTest
 {
 	public class GameScene
 	{
-		private GameObjectMap gameObjects;
+		public GameObjectMap GameObjects { get; private set; }
 
 		private List<GameSystem> gameSystems;
 		private Dictionary<Type,GameSystem> gameSystemsDict;
 
 		public GameScene ()
 		{
-			gameObjects = new GameObjectMap ();
+			GameObjects = new GameObjectMap ();
 			gameSystems = new List<GameSystem> ();
 			gameSystemsDict = new Dictionary<Type, GameSystem> ();
 		}
 
-		public void AddGameObject (GameObject go)
+		public void AddGameObject<T> (T go) where T : GameObject
 		{
-			gameObjects.AddGameObject (go);
+			GameObjects.AddGameObject<T> (go);
 		}
 
-		public void RemoveGameObject (GameObject go)
+		public void RemoveGameObject<T> (T go) where T : GameObject
 		{
-			gameObjects.RemoveGameObject (go);
+			GameObjects.RemoveGameObject<T> (go);
 		}
 
 		public List<GameObject> GetGameObjectsByAspect (Aspect aspect)
 		{
-			return gameObjects.GetGameObjectsByAspect (aspect);
+			return GameObjects.GetGameObjectsByAspect (aspect);
 		}
 
 		public void AddGameSystem<T> (T gs) where T : GameSystem

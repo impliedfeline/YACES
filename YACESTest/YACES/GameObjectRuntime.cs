@@ -7,15 +7,19 @@ namespace YACESTest
 {
 	public class GameObjectRuntime
 	{
-		private GameScene currentScene;
 		private GraphicsDeviceManager graphics;
+		private GameObjectMap gameObjectMap;
+		private List<GameSystem> gameSystems;
+		private GameScene currentScene;
 
 		public RenderSystem Renderer { get; set; }
 
 		public GameObjectRuntime (GraphicsDeviceManager graphics)
 		{
-			currentScene = new GameScene ();
 			this.graphics = graphics;
+			this.gameObjectMap = new GameObjectMap ();
+			this.gameSystems = new List<GameSystem> ();
+			this.currentScene = new GameScene ();
 		}
 
 		public void ChangeScene (GameScene gs)

@@ -47,6 +47,7 @@ namespace YACESTest
 			//TODO: use this.Content to load your game content here 
 			Block.Sprite = Content.Load<Texture2D> ("block");
 			Player.Sprite = Content.Load<Texture2D> ("block");
+			ChildTest.Sprite = Content.Load<Texture2D> ("block");
 			gameObjectRuntime.Renderer = new Render2DSystem ();
 			gameObjectRuntime.LoadContent ();
 			gameObjectRuntime.ChangeScene (new TestScene ());

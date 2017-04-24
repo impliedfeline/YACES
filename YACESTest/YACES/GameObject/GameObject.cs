@@ -27,7 +27,7 @@ namespace YACESTest
 			this.gameComponents = new Dictionary<Type, List<GameComponent>> ();
 			this.Aspect = new Aspect ();
 			this.Transform = transform;
-			this.Transform.Parent = this;
+			this.Transform.GameObject = this;
 			ID = ++IDCounter;
 		}
 
@@ -36,7 +36,7 @@ namespace YACESTest
 			if (!gameComponents.ContainsKey (typeof(T))) {
 				gameComponents [typeof(T)] = new List<GameComponent> ();
 			}
-			gameComponent.Parent = this;
+			gameComponent.GameObject = this;
 			gameComponents [typeof(T)].Add (gameComponent);
 			Aspect.AddType<T> ();
 		}
@@ -60,6 +60,12 @@ namespace YACESTest
 		public List<T> GetGameComponentsByType<T> () where T : GameComponent
 		{
 			return gameComponents [typeof(T)].Cast<T> ().ToList ();
+		}
+
+		public void Attach (GameObject child)
+		{
+			Children.Add (child);
+			child.Parent = this;
 		}
 	}
 }

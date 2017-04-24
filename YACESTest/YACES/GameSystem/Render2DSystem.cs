@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace YACESTest
 {
@@ -15,8 +16,11 @@ namespace YACESTest
 		{
 			SpriteBatch.Begin ();
 			foreach (GameObject go in gs.GetGameObjectsByAspect(containsSprite)) {
-				Render2D render = go.GetGameComponentsByType<Render2D> () [0] as Render2D;
-				SpriteBatch.Draw (render.Sprite, go.Transform.Position2D, Color.White);
+				Render2D render = go.GetGameComponentsByType<Render2D> () [0];
+				SpriteBatch.Draw (render.Sprite, go.Transform.Position2D, null, Color.White,
+					go.Transform.RotationZ,
+					new Vector2 (render.Sprite.Width / 2, render.Sprite.Height / 2),
+					go.Transform.Scaling2D, SpriteEffects.None, 1);
 			}
 			SpriteBatch.End ();
 		}

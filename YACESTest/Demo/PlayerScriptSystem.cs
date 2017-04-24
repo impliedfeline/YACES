@@ -6,8 +6,6 @@ namespace YACESTest
 {
 	public class PlayerScriptSystem : GameSystem
 	{
-		private static Aspect isPlayer = new Aspect (typeof(Player));
-
 		public bool MoveUp { get; set; }
 
 		public bool MoveDown { get; set; }
@@ -26,24 +24,32 @@ namespace YACESTest
 
 		public override void Run (GameScene gs, GameTime gt)
 		{
-			Player p = gs.GetGameObjectsByAspect (isPlayer) [0] as Player;
-			float move = 0.5f * gt.ElapsedGameTime.Milliseconds;
+			Player p = gs.GameObjects.GetGameObjectsByType<Player> () [0];
+			Transform t = p.Transform;
+			float rotSpeed = (1f / 256) * gt.ElapsedGameTime.Milliseconds;
+			float moveSpeed = 1f * gt.ElapsedGameTime.Milliseconds;
 
-			if (MoveUp) {
-				p.Transform.Position2D -= new Vector2 (0, move);
-				MoveUp = false;
-			}
-			if (MoveDown) {
-				p.Transform.Position2D -= new Vector2 (0, -move);
-				MoveDown = false;
-			}
 			if (MoveLeft) {
-				p.Transform.Position2D -= new Vector2 (move, 0);
+				t.RotationZ -= rotSpeed;
+				//p.Transform.Position2D -= new Vector2 (move, 0);
 				MoveLeft = false;
 			}
 			if (MoveRight) {
-				p.Transform.Position2D -= new Vector2 (-move, 0);
+				t.RotationZ += rotSpeed;
+				//p.Transform.Position2D += new Vector2 (move, 0);
 				MoveRight = false;
+			}
+			if (MoveUp) {
+				t.Position2D -= new Vector2 (moveSpeed * -(float)Math.Sin (t.RotationZ),
+					moveSpeed * (float)Math.Cos (t.RotationZ));
+				//p.Transform.Position2D -= new Vector2 (0, move);
+				MoveUp = false;
+			}
+			if (MoveDown) {
+				t.Position2D += new Vector2 (moveSpeed * -(float)Math.Sin (t.RotationZ),
+					moveSpeed * (float)Math.Cos (t.RotationZ));
+				//p.Transform.Position2D += new Vector2 (0, move);
+				MoveDown = false;
 			}
 		}
 	}

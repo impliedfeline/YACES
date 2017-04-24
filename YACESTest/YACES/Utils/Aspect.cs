@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace YACESTest
@@ -26,14 +27,9 @@ namespace YACESTest
 			types.Add (t);
 		}
 
-		public bool SubsetOf (Aspect that)
+		public bool IsSubsetOf (Aspect that)
 		{
-			bool flag = true;
-			foreach (Type t in types) {
-				if (!that.types.Contains (t))
-					flag = false;
-			}
-			return flag;
+			return this.types.IsSubsetOf (that.types);
 		}
 
 		public void AddType<T> ()

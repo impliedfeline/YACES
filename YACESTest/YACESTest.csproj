@@ -74,6 +74,7 @@
     <Compile Include="Demo\DemoCollisionSystem.cs" />
     <Compile Include="Demo\Hitbox2D.cs" />
     <Compile Include="YACES\Utils\GameObjectMap.cs" />
+    <Compile Include="Demo\ChildTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
