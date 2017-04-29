@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace YACESTest
+namespace YACES
 {
 	public class PlayerControllerSystem : GameSystem
 	{
@@ -10,10 +10,10 @@ namespace YACESTest
 		{
 		}
 
-		public override void Run (GameScene gs, GameTime gt)
+		public override void Run (GameInstance gameInstance, GameTime gameTime)
 		{
 			KeyboardState state = Keyboard.GetState ();
-			PlayerScriptSystem pcs = gs.GetGameSystem<PlayerScriptSystem> ();
+			PlayerScriptSystem pcs = gameInstance.GetGameSystem<PlayerScriptSystem> ();
 			if (state.IsKeyDown (Keys.W) || state.IsKeyDown (Keys.Up)) {
 				pcs.MoveUp = true;
 			}

@@ -2,7 +2,7 @@
 
 using Microsoft.Xna.Framework.Graphics;
 
-namespace YACESTest
+namespace YACES
 {
 	public class Player : GameObject
 	{
@@ -10,7 +10,7 @@ namespace YACESTest
 
 		public Player (Transform transform) : base (transform)
 		{
-			AddGameComponent<Render2D> (new Render2D (Sprite));
+			AddGameComponent (new Render2D (Sprite, 0));
 		}
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace YACESTest
+namespace YACES
 {
 	public class BlockGeneratorSystem : GameSystem
 	{
@@ -14,20 +14,14 @@ namespace YACESTest
 			counter = 0;
 		}
 
-		public BlockGeneratorSystem (int priority) : base (priority)
+		public override void Run (GameInstance gameInstance, GameTime gameTime)
 		{
-			rng = new Random ();
-			counter = 0;
-		}
-
-		public override void Run (GameScene gs, GameTime gt)
-		{
-			counter += gt.ElapsedGameTime.TotalSeconds;
+			counter += gameTime.ElapsedGameTime.TotalSeconds;
 			if (counter > 0.125) {
 				counter = 0;
-				Transform t = new Transform (new Vector3 (rng.Next (1200), 0, 0), Vector3.One, Vector3.Zero);
+				Transform t = new Transform (new Vector3 (rng.Next (1200), 0, 0), Vector3.Zero, Vector3.One);
 				Block b = new Block (t);
-				gs.GetGameSystem<CreationSystem> ().AttachGameObject (b);
+				gameInstance.GetGameSystem<CreationSystem> ().AttachGameObject (b);
 			}
 		}
 	}

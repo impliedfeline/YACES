@@ -2,27 +2,27 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace YACESTest
+namespace YACES
 {
 	public class Render2DSystem : RenderSystem
 	{
 		private static Aspect containsSprite = new Aspect (typeof(Render2D));
 
-		public Render2DSystem () : base ()
+		public Render2DSystem (GraphicsDeviceManager gdm) : base (gdm)
 		{
 		}
 
-		public override void Run (GameScene gs, GameTime gt)
+		public override void Run (GameInstance gameInstance, GameTime gameTime)
 		{
-			SpriteBatch.Begin ();
-			foreach (GameObject go in gs.GetGameObjectsByAspect(containsSprite)) {
+			spriteBatch.Begin (SpriteSortMode.BackToFront);
+			foreach (GameObject go in gameInstance.GameObjects.GetGameObjectsByAspect (containsSprite)) {
 				Render2D render = go.GetGameComponentsByType<Render2D> () [0];
-				SpriteBatch.Draw (render.Sprite, go.Transform.Position2D, null, Color.White,
-					go.Transform.RotationZ,
+				spriteBatch.Draw (render.Sprite, go.Transform.TruePosition2D, null, Color.White,
+					go.Transform.TrueRotationZ,
 					new Vector2 (render.Sprite.Width / 2, render.Sprite.Height / 2),
-					go.Transform.Scaling2D, SpriteEffects.None, 1);
+					go.Transform.Scaling2D, SpriteEffects.None, render.Layer / 255f);
 			}
-			SpriteBatch.End ();
+			spriteBatch.End ();
 		}
 	}
 }

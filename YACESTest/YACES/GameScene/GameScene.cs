@@ -2,68 +2,49 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace YACESTest
+namespace YACES
 {
-	public class GameScene
+	/// <summary>
+	/// An abstract base class for GameScenes.
+	/// When defining their own GameScenes, the end user should derive from this class.
+	/// </summary>
+	public abstract class GameScene
 	{
+		/// <summary>
+		/// The GameObjectMap containent the GameObjects in the scene.
+		/// When adding new GameObjects in the constructor, add them through this.
+		/// </summary>
+		/// <value>The game objects.</value>
 		public GameObjectMap GameObjects { get; private set; }
 
-		private List<GameSystem> gameSystems;
-		private Dictionary<Type,GameSystem> gameSystemsDict;
+		private GameSystemSortedSet gameSystems;
 
+		public IReadOnlyList<GameSystem> GameSystems {
+			get { return gameSystems.GameSystemSortedList; }
+		}
+
+		public IReadOnlyDictionary<Type,GameSystem> GameSystemsDict {
+			get { return gameSystems.GameSystemsDict; }
+		}
+
+		/// <summary>
+		/// Initializes a new GameScene.
+		/// Any scene specific systems or gameObjects to be added should be defined here.
+		/// </summary>
 		public GameScene ()
 		{
 			GameObjects = new GameObjectMap ();
-			gameSystems = new List<GameSystem> ();
-			gameSystemsDict = new Dictionary<Type, GameSystem> ();
+			gameSystems = new GameSystemSortedSet ();
 		}
 
-		public void AddGameObject<T> (T go) where T : GameObject
+		/// <summary>
+		/// Adds a new GameSystem to the GameScene.
+		/// Main use is to be called from the constructors of derived classes.
+		/// </summary>
+		/// <param name="gameSystem">Game system.</param>
+		protected void AddGameSystem (GameSystem gameSystem)
 		{
-			GameObjects.AddGameObject<T> (go);
-		}
-
-		public void RemoveGameObject<T> (T go) where T : GameObject
-		{
-			GameObjects.RemoveGameObject<T> (go);
-		}
-
-		public List<GameObject> GetGameObjectsByAspect (Aspect aspect)
-		{
-			return GameObjects.GetGameObjectsByAspect (aspect);
-		}
-
-		public void AddGameSystem<T> (T gs) where T : GameSystem
-		{
-			gameSystems.Add (gs);
-			gameSystemsDict [typeof(T)] = gs;
-		}
-
-		public void RemoveGameSystem<T> (T gs) where T : GameSystem
-		{
-			
-			gameSystems.Remove (gs);
-			gameSystemsDict [typeof(T)] = null;
-		}
-
-		public T GetGameSystem<T> () where T : GameSystem
-		{
-			return gameSystemsDict [typeof(T)] as T;
-		}
-
-		public void Initialize ()
-		{
-			gameSystems.Sort ();
-		}
-
-		public void RunSystems (GameTime gameTime)
-		{
-			gameSystems.ForEach (gs => gs.Run (this, gameTime));
-		}
-
-		public void RunAdHocSystem (GameSystem gs, GameTime gameTime)
-		{
-			gs.Run (this, gameTime);
+			gameSystems.AddGameSystem (gameSystem);
 		}
 	}
 }

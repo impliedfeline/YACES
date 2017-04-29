@@ -1,6 +1,7 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 
-namespace YACESTest
+namespace YACES
 {
 	public class DemoCollisionSystem : GameSystem
 	{
@@ -8,7 +9,7 @@ namespace YACESTest
 		{
 		}
 
-		public override void Run (GameScene gs, Microsoft.Xna.Framework.GameTime gt)
+		public override void Run (GameInstance gameInstance, GameTime gameTime)
 		{
 		}
 	}

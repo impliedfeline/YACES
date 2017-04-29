@@ -1,9 +1,9 @@
 /home/juicyp/Tools/CSharp/YACES/YACESTest/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/home/juicyp/Tools/CSharp/YACES/YACESTest/bin/Debug/YACESTest.exe.mdb
-/home/juicyp/Tools/CSharp/YACES/YACESTest/bin/Debug/YACESTest.exe
-/home/juicyp/Tools/CSharp/YACES/YACESTest/obj/x86/Debug/YACESTest.exe
-/home/juicyp/Tools/CSharp/YACES/YACESTest/obj/x86/Debug/YACESTest.exe.mdb
 /home/juicyp/Tools/CSharp/YACES/YACESTest/bin/Debug/MonoGame.Framework.dll
 /home/juicyp/Tools/CSharp/YACES/YACESTest/bin/Debug/OpenTK.dll
 /home/juicyp/Tools/CSharp/YACES/YACESTest/bin/Debug/NVorbis.dll
 /home/juicyp/Tools/CSharp/YACES/YACESTest/bin/Debug/Content/block.png
+/home/juicyp/Tools/CSharp/YACES/YACESTest/bin/Debug/YACESTest.exe.mdb
+/home/juicyp/Tools/CSharp/YACES/YACESTest/bin/Debug/YACESTest.exe
+/home/juicyp/Tools/CSharp/YACES/YACESTest/obj/x86/Debug/YACESTest.exe
+/home/juicyp/Tools/CSharp/YACES/YACESTest/obj/x86/Debug/YACESTest.exe.mdb

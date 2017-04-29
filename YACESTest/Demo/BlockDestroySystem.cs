@@ -1,11 +1,10 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace YACESTest
+namespace YACES
 {
 	public class BlockDestroySystem : GameSystem
 	{
-		private static Aspect isBlock = new Aspect (typeof(Block));
 
 		public BlockDestroySystem () : base ()
 		{
@@ -15,11 +14,11 @@ namespace YACESTest
 		{
 		}
 
-		public override void Run (GameScene gs, GameTime gt)
+		public override void Run (GameInstance gameInstance, GameTime gameTime)
 		{
-			foreach (GameObject go in gs.GetGameObjectsByAspect(isBlock)) {
+			foreach (GameObject go in gameInstance.GameObjects.GetGameObjectsByType<Block>()) {
 				if (go.Transform.Position2D.Y > 400) {
-					gs.RemoveGameObject (go);
+					gameInstance.GameObjects.RemoveGameObject (go);
 				}
 			}
 		}

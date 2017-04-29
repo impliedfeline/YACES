@@ -2,7 +2,7 @@
 
 using Microsoft.Xna.Framework.Graphics;
 
-namespace YACESTest
+namespace YACES
 {
 	public class Block : GameObject
 	{
@@ -10,9 +10,8 @@ namespace YACESTest
 
 		public Block (Transform transform) : base (transform)
 		{
-			AddGameComponent<Hitbox2D> (new Hitbox2D (transform.Position2D));
-			AddGameComponent<Render2D> (new Render2D (Sprite));
-			AddToAspect<Block> ();
+			AddGameComponent (new Hitbox2D (transform.Position2D));
+			AddGameComponent (new Render2D (Sprite, 0));
 		}
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace YACESTest
+namespace YACES
 {
 	public class Hitbox2D : GameComponent
 	{

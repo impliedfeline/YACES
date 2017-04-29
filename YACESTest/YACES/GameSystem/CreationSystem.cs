@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 
-namespace YACESTest
+namespace YACES
 {
 	public class CreationSystem : GameSystem
 	{
@@ -19,16 +19,21 @@ namespace YACESTest
 			addQueue = new Queue<GameObject> ();
 		}
 
-		public override void Run (GameScene gs, GameTime gt)
+		public override void Run (GameInstance gameInstance, GameTime gameTime)
 		{
 			while (addQueue.Count > 0) {
-				gs.AddGameObject (addQueue.Dequeue ());
+				gameInstance.GameObjects.AddGameObject (addQueue.Dequeue ());
 			}
 		}
 
-		public void AttachGameObject (GameObject go)
+		/// <summary>
+		/// Attachs a GameObject to a internal queue.
+		/// Items in the queue are added to the current scene at the end of each Update.
+		/// </summary>
+		/// <param name="gameObject">Game object.</param>
+		public void AttachGameObject (GameObject gameObject)
 		{
-			addQueue.Enqueue (go);
+			addQueue.Enqueue (gameObject);
 		}
 	}
 }

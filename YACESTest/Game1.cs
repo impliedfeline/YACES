@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Input;
 
 #endregion
-namespace YACESTest
+namespace YACES
 {
 	/// <summary>
 	/// This is the main type for your game
@@ -14,13 +14,12 @@ namespace YACESTest
 	public class Game1 : Game
 	{
 		GraphicsDeviceManager graphics;
-		GameObjectRuntime gameObjectRuntime;
+		GameRuntime gameObjectRuntime;
 
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
 			Content.RootDirectory = "Content";
-			gameObjectRuntime = new GameObjectRuntime (graphics);
 			//graphics.IsFullScreen = true;		
 		}
 
@@ -45,13 +44,11 @@ namespace YACESTest
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			//TODO: use this.Content to load your game content here 
+			gameObjectRuntime = GameRuntime.GameRuntime2D (graphics);
 			Block.Sprite = Content.Load<Texture2D> ("block");
 			Player.Sprite = Content.Load<Texture2D> ("block");
 			ChildTest.Sprite = Content.Load<Texture2D> ("block");
-			gameObjectRuntime.Renderer = new Render2DSystem ();
-			gameObjectRuntime.LoadContent ();
-			gameObjectRuntime.ChangeScene (new TestScene ());
-			gameObjectRuntime.Initialize ();
+			gameObjectRuntime.LoadScene (new TestScene ());
 		}
 
 		/// <summary>

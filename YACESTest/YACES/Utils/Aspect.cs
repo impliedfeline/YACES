@@ -2,8 +2,15 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace YACESTest
+namespace YACES
 {
+	/// <summary>
+	/// Wrapper class for a set of types.
+	/// The GameMap utilizes this for mapping gameObjects by their contained components.
+	/// New GameObjects store the types of their GameComponents as their Aspect.
+	/// Thus, the user may fetch GameObjects from the GameMap by a combination of GameComponents,
+	/// defines as an Aspect.
+	/// </summary>
 	public class Aspect
 	{
 		private HashSet<Type> types;
@@ -13,18 +20,12 @@ namespace YACESTest
 			types = new HashSet<Type> ();
 		}
 
-		public Aspect (ICollection<Type> types)
-		{
-			this.types = new HashSet<Type> ();
-			foreach (Type t in types) {
-				this.types.Add (t);
-			}
-		}
-
-		public Aspect (Type t)
+		public Aspect (params Type[] ts)
 		{
 			types = new HashSet<Type> ();
-			types.Add (t);
+			foreach (Type t in ts) {
+				types.Add (t);
+			}
 		}
 
 		public bool IsSubsetOf (Aspect that)
@@ -32,14 +33,14 @@ namespace YACESTest
 			return this.types.IsSubsetOf (that.types);
 		}
 
-		public void AddType<T> ()
+		public void AddType (Type t)
 		{
-			types.Add (typeof(T));
+			types.Add (t);
 		}
 
-		public void RemoveType<T> ()
+		public void RemoveType (Type t)
 		{
-			types.Remove (typeof(T));
+			types.Remove (t);
 		}
 
 		public override bool Equals (object obj)

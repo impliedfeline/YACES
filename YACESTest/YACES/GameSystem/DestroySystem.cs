@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 
-namespace YACESTest
+namespace YACES
 {
 	public class DestroySystem : GameSystem
 	{
@@ -19,10 +19,10 @@ namespace YACESTest
 			delQueue = new Queue<GameObject> ();
 		}
 
-		public override void Run (GameScene gs, GameTime gt)
+		public override void Run (GameInstance gameInstance, GameTime gameTime)
 		{
 			while (delQueue.Count > 0) {
-				gs.RemoveGameObject (delQueue.Dequeue ());
+				gameInstance.GameObjects.RemoveGameObject (delQueue.Dequeue ());
 			}
 		}
 

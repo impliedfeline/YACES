@@ -1,12 +1,8 @@
 ﻿<Properties StartupItem="YACESTest/YACESTest.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="YACESTest/YACES/GameSystem/Render2DSystem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="YACESTest/YACES/GameObjectRuntime.cs">
     <Files>
-      <File FileName="YACESTest/YACES/GameComponent/Transform.cs" Line="40" Column="74" />
-      <File FileName="YACESTest/Demo/TestScene.cs" Line="16" Column="76" />
-      <File FileName="YACESTest/YACES/GameSystem/Render2DSystem.cs" Line="21" Column="67" />
-      <File FileName="YACESTest/Demo/PlayerScriptSystem.cs" Line="28" Column="20" />
-      <File FileName="YACESTest/Demo/ChildTest.cs" Line="12" Column="55" />
+      <File FileName="YACESTest/YACES/GameObjectRuntime.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace YACESTest
+namespace YACES
 {
 	public class PlayerScriptSystem : GameSystem
 	{
@@ -22,12 +23,12 @@ namespace YACESTest
 		{
 		}
 
-		public override void Run (GameScene gs, GameTime gt)
+		public override void Run (GameInstance gameInstance, GameTime gameTime)
 		{
-			Player p = gs.GameObjects.GetGameObjectsByType<Player> () [0];
+			Player p = gameInstance.GameObjects.GetGameObjectsByType<Player> () [0];
 			Transform t = p.Transform;
-			float rotSpeed = (1f / 256) * gt.ElapsedGameTime.Milliseconds;
-			float moveSpeed = 1f * gt.ElapsedGameTime.Milliseconds;
+			float rotSpeed = (1f / 256) * gameTime.ElapsedGameTime.Milliseconds;
+			float moveSpeed = 1f * gameTime.ElapsedGameTime.Milliseconds;
 
 			if (MoveLeft) {
 				t.RotationZ -= rotSpeed;
@@ -50,6 +51,10 @@ namespace YACESTest
 					moveSpeed * (float)Math.Cos (t.RotationZ));
 				//p.Transform.Position2D += new Vector2 (0, move);
 				MoveDown = false;
+			}
+			HashSet<GameObject> cts = p.Children;
+			foreach (GameObject ct in cts) {
+				ct.Transform.RotationZ += rotSpeed;
 			}
 		}
 	}

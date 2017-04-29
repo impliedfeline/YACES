@@ -2,14 +2,17 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace YACESTest
+namespace YACES
 {
 	public abstract class RenderSystem : GameSystem
 	{
-		public SpriteBatch SpriteBatch { get; set; }
+		protected SpriteBatch spriteBatch;
+		protected GraphicsDeviceManager graphicsDeviceManager;
 
-		public RenderSystem () : base ()
+		public RenderSystem (GraphicsDeviceManager graphicsDeviceManager) : base ()
 		{
+			this.graphicsDeviceManager = graphicsDeviceManager;
+			this.spriteBatch = new SpriteBatch (graphicsDeviceManager.GraphicsDevice);
 			Priority = GameSystem.LAST;
 		}
 	}
