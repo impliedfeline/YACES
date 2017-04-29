@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{87C2A961-651A-4012-8A04-3C539882E6CC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>YACESTest</RootNamespace>
+    <AssemblyName>YACESTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MonoGamePlatform>DesktopGL</MonoGamePlatform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="NVorbis">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\NVorbis.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game1.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YACES\GameComponent\GameComponent.cs" />
+    <Compile Include="YACES\GameObject\GameObject.cs" />
+    <Compile Include="YACES\GameSystem\GameSystem.cs" />
+    <Compile Include="YACES\GameScene\GameScene.cs" />
+    <Compile Include="YACES\GameComponent\Render2D.cs" />
+    <Compile Include="YACES\GameSystem\RenderSystem.cs" />
+    <Compile Include="YACES\GameSystem\CreationSystem.cs" />
+    <Compile Include="YACES\GameSystem\Render2DSystem.cs" />
+    <Compile Include="Demo\TestScene.cs" />
+    <Compile Include="YACES\GameSystem\DestroySystem.cs" />
+    <Compile Include="YACES\GameComponent\Transform.cs" />
+    <Compile Include="YACES\Utils\GameObjectMap.cs" />
+    <Compile Include="YACES\Utils\Aspect.cs" />
+    <Compile Include="YACES\GameComponent\Render.cs" />
+    <Compile Include="YACES\Utils\GameSystemSortedSet.cs" />
+    <Compile Include="YACES\Utils\GameInstance.cs" />
+    <Compile Include="YACES\GameRuntime.cs" />
+    <Compile Include="Demo\GameObjects\Block.cs" />
+    <Compile Include="Demo\GameObjects\ChildTest.cs" />
+    <Compile Include="Demo\GameObjects\Player.cs" />
+    <Compile Include="Demo\GameSystems\BlockDestroySystem.cs" />
+    <Compile Include="Demo\GameSystems\BlockGeneratorSystem.cs" />
+    <Compile Include="Demo\GameSystems\DemoCollisionSystem.cs" />
+    <Compile Include="Demo\GameSystems\GravitySystem.cs" />
+    <Compile Include="Demo\GameSystems\PlayerControllerSystem.cs" />
+    <Compile Include="Demo\GameSystems\PlayerScriptSystem.cs" />
+    <Compile Include="Demo\GameComponents\Hitbox2D.cs" />
+    <Compile Include="Demo\GameSystems\CollisionSystem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon.png" />
+    <None Include="Content\block.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\" />
+    <Folder Include="System\" />
+    <Folder Include="YACES\" />
+    <Folder Include="YACES\GameObject\" />
+    <Folder Include="YACES\GameComponent\" />
+    <Folder Include="YACES\GameSystem\" />
+    <Folder Include="YACES\GameScene\" />
+    <Folder Include="YACES\Utils\" />
+    <Folder Include="Demo\" />
+    <Folder Include="Demo\GameObjects\" />
+    <Folder Include="Demo\GameSystems\" />
+    <Folder Include="Demo\GameComponents\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
