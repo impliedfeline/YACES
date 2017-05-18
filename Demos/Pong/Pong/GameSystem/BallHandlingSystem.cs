@@ -25,15 +25,15 @@ namespace Pong
 				if (ballRect.Intersects (paddleRect)) {
 					touching = true;
 					if (!touchedLastFrame) {
-						ball.GetGameComponentsByType<VelocityComponent> () [0].Velocity *= new Vector2 (-1.5f, 1.5f);
+						ball.GetGameComponentsByType<VelocityComponent> () [0].Velocity *= new Vector2 (-1.25f, 1.25f);
 					}
 				}
 			}
 			if (touching != touchedLastFrame)
 				touchedLastFrame = touching;
 			
-			float ballY = ball.Transform.TruePosition2D.Y + 128;
-			if (ballY < 0 || ballY > Settings.ScreenHeight) {
+			float ballY = ball.Transform.TruePosition2D.Y;
+			if (ballY - 32 < 0 || ballY + 32 > Settings.ScreenHeight) {
 				ball.GetGameComponentsByType<VelocityComponent> () [0].Velocity *= new Vector2 (1, -1);
 				return;
 			}
