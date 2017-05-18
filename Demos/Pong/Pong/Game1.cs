@@ -47,8 +47,8 @@ namespace Pong
 			gameObjectRuntime = GameRuntime.GameRuntime2D (graphics);
 			Ball.Sprite = Content.Load<Texture2D> ("ball");
 			Paddle.Sprite = Content.Load<Texture2D> ("paddle");
-			TitleBanner.Sprite = Content.Load<Texture2D> ("paddle");
-			gameObjectRuntime.LoadScene (new MainScene ());
+			TitleBanner.Sprite = Content.Load<Texture2D> ("titlebanner");
+			gameObjectRuntime.LoadScene (new TitleScene ());
 			//TODO: use this.Content to load your game content here 
 		}
 
