@@ -6,4 +6,5 @@ The project aims to provide a property-centric game object-model for the MonoGam
 Included is a simple demo of the game Pong showcasing the API calls.
 
 [Zip](/final_delivery.zip)
+
 [Pong binaries](/Demos/Pong/Pong/bin/Debug)
