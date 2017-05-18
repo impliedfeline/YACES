@@ -39,7 +39,6 @@
     <Compile Include="GameComponent\Render.cs" />
     <Compile Include="GameComponent\Render2D.cs" />
     <Compile Include="GameComponent\Transform.cs" />
-    <Compile Include="GameComponent\Transform2D.cs" />
     <Compile Include="GameObject\GameObject.cs" />
     <Compile Include="GameScene\GameScene.cs" />
     <Compile Include="GameSystem\CreationSystem.cs" />
